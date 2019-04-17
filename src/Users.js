@@ -4,7 +4,11 @@ import { connect } from 'react-redux'
 import { setUsersActionCreator } from './state/users'
 
 const Users = (props) => {
-    props._setUsers('ala')
+    fetch ('https://randomuser.me/api')
+        .then(r => r.json())
+        .then(data => {
+            props._setUsers(data.results)
+        })
 
     return (
         < div >
