@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
-import { startCounterSyncAsyncAction } from './state/counter'
+import { incAsyncActionCreator } from './state/counter'
 
 const Counter = (props) => (
     <div>
@@ -21,7 +21,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-   _inc: () => dispatch((startCounterSyncAsyncAction))
+   _inc: () => dispatch(incAsyncActionCreator())
 })
 
 export default connect(
