@@ -6,7 +6,7 @@ export const setUsersActionCreator = users => ({
 })
 
 const initialState = {
-    users: [],
+    users: null,
 }
 
 export default (state = initialState, action) => {
