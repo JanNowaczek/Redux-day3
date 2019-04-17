@@ -5,7 +5,10 @@ const SET = 'counter/SET'
 export const incAsyncActionCreator = () => (dispatch, getState) => {
     const state = getState()
     const currentNumber = state.counter.number
-    database.ref('jfddl7').set(currentNumber + 1)
+
+    if (currentNumber !== null) {
+        database.ref('jfddl7').set(currentNumber + 1)
+    }
 }
 
 export const startCounterSyncAsyncAction = () => (dispatch, getState) => {
@@ -32,13 +35,13 @@ const setActionCreator = number => ({
 })
 
 const initialState = {
-    number: 0,
+    number: null,
 }
 
 export default (state = initialState, action) => {
-    switch(action.type){
+    switch (action.type) {
         case SET:
-            return{
+            return {
                 ...state,
                 number: action.number,
             }
